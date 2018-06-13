@@ -8,16 +8,16 @@ using System.Text.RegularExpressions;
 
 namespace TwiHigh
 {
-    public class HomeTLTweet : Tweet
+    public class UserTLTweet : Tweet
     {
-        public HomeTLTweet(Status tweet)
+        public UserTLTweet(Status tweet)
         {
             IsFolloweeReTweeted = tweet.RetweetedStatus != null;
             IsFolloweeQuoted = tweet.QuotedStatus != null;
 
             if(IsFolloweeReTweeted == true)
             {
-                ReTweetMessage = tweet.User.Name + " retweeted";
+                ReTweetMessage = tweet.User.Name + "retweeted";
                 Name = tweet.RetweetedStatus.User.Name;
                 UserID = "@" + tweet.RetweetedStatus.User.ScreenName;
                 UserThumbnailURL = tweet.RetweetedStatus.User.ProfileImageUrlHttps;
@@ -41,13 +41,12 @@ namespace TwiHigh
             }
         }
 
-        public static void ParseTweet(ObservableCollection<HomeTLTweet> homeTLView, ListedResponse<Status> tweetList)
+        public static void ParseTweet(ObservableCollection<UserTLTweet> userTLView, ListedResponse<Status> tweetList)
         {
-
-            homeTLView.Clear();
+            userTLView.Clear();
             foreach(var tweet in tweetList)
             {
-                homeTLView.Add(new HomeTLTweet(tweet));
+                userTLView.Add(new UserTLTweet(tweet));
             }
         }
     }

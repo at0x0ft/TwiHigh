@@ -13,9 +13,7 @@
     </TabbedPage.Padding>
 
     <v:HomeTLPage/>
-    <!--
-    <v:TweetPage />-->
+    <v:TweetPage />
     <v:SearchPage />
-    <!--
-    <v:UserTLPage />-->
+    <v:UserTLPage />
 </TabbedPage>

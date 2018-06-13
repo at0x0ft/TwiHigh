@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwiHigh.Views.UserTLPage"
+             Title="{Binding Title}">
+
+    <StackLayout VerticalOptions="Fill">
+        <Button Text="Load TimeLine" WidthRequest="80" Command="{Binding LoadUserTLCommandAsync}" />
+        <ListView ItemsSource="{Binding UserTimeLine}" HasUnevenRows="True" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsNowRefreshing}" RefreshCommand="{Binding LoadUserTLCommandAsync}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding ReTweetMessage}" />
+                            <StackLayout Orientation="Horizontal">
+                                <Image  WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding UserThumbnailURL}" />
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                        <Label Text="{Binding UserID}" />
+                                        <Label Text="{Binding Date}" />
+                                    </StackLayout>
+                                    <Label Text="{Binding Text}" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label VerticalOptions="End" Text="{Binding ClientName}" />
+                                        <Label Text="{Binding RTNum}" />
+                                        <Label Text="{Binding FavNum}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
