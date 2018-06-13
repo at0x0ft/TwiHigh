@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwiHigh.Views.SearchPage"
+             Title="{Binding Title}">
+
+    <StackLayout VerticalOptions="Fill">
+        <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="Teal">
+            <Entry HorizontalOptions="FillAndExpand" Text="{Binding SearchWord}"/>
+            <Button Text="Search" WidthRequest="80" Command="{Binding SearchTweetCommandAsync}" />
+        </StackLayout>
+        <ListView ItemsSource="{Binding Result}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image  WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Start" Source="{Binding UserThumbnailURL}" />
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                    <Label Text="{Binding UserID}" />
+                                    <Label Text="{Binding Date}" />
+                                </StackLayout>
+                                <Label Text="{Binding Text}" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label VerticalOptions="End" Text="{Binding ClientName}" />
+                                    <Label Text="{Binding RTNum}" />
+                                    <Label Text="{Binding FavNum}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

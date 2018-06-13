@@ -31,6 +31,7 @@ namespace TwiHigh
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<HomeTLPage>();
         }
     }
 }
