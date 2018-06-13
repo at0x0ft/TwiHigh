@@ -15,6 +15,7 @@ namespace TwiHigh.ViewModels
         public UserTLPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "UserTimeLine Page";
+            IsNowRefreshing = false;
             LoadUserTLCommandAsync = new DelegateCommand(async () => await LoadUserTLExecuteAsync());
             UserTimeLine = new ObservableCollection<UserTLTweet>();
         }

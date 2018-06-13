@@ -5,7 +5,11 @@
              Title="{Binding Title}">
 
     <StackLayout VerticalOptions="Fill">
-        <Editor HorizontalOptions="FillAndExpand" Text="{Binding Post}" />
+        <Label Text="Post" />
+        <Editor x:Name="Post" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" Text="{Binding Post}" TextChanged="Post_TextChanged" />
+        <Label Text="FixedTag" />
+        <Editor x:Name="FixedTag" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" Text="{Binding FixedTag}" TextChanged="FixedTag_TextChanged" />
+        <Label x:Name="TotalWordCount" />
         <Button Text="Tweet" WidthRequest="80" Command="{Binding PostTweetCommandAsync}" />
     </StackLayout>
 

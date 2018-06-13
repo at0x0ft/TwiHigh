@@ -9,9 +9,9 @@ namespace TwiHigh.Views
 {
 	public partial class MainPage : TabbedPage
 	{
-		public MainPage ()
+		public MainPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }
